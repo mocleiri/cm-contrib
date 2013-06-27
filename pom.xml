@@ -4,11 +4,11 @@
     <parent>
         <groupId>org.kuali.pom</groupId>
         <artifactId>kuali-common</artifactId>
-        <version>2.0.16</version>
+        <version>3.0.17</version>
     </parent>
     <groupId>org.kuali.student</groupId>
     <artifactId>student</artifactId>
-    <version>2.0.0-cm</version>
+    <version>2.0.1-cm</version>
     <packaging>pom</packaging>
     <name>Kuali Student</name>
     <description>
@@ -77,15 +77,15 @@
         </profile>
     </profiles>
     <scm>
-        <connection>scm:svn:https://svn.kuali.org/repos/student/enrollment/aggregate/tags/student-2.0.0-cm</connection>
-        <developerConnection>scm:svn:https://svn.kuali.org/repos/student/enrollment/aggregate/tags/student-2.0.0-cm</developerConnection>
-        <url>https://svn.kuali.org/repos/student/enrollment/aggregate/tags/student-2.0.0-cm</url>
+        <connection>scm:svn:https://svn.kuali.org/repos/student/enrollment/aggregate/tags/student-2.0.1-cm</connection>
+        <developerConnection>scm:svn:https://svn.kuali.org/repos/student/enrollment/aggregate/tags/student-2.0.1-cm</developerConnection>
+        <url>https://svn.kuali.org/repos/student/enrollment/aggregate/tags/student-2.0.1-cm</url>
     </scm>
     <properties>
-        <ks.api.version>2.0.0-cm</ks.api.version>
-        <ks.core.version>2.0.0-cm</ks.core.version>
-        <ks.lum.version>2.0.0-cm</ks.lum.version>
-        <ks.deployments.version>2.0.0-cm</ks.deployments.version>
+        <ks.api.version>2.0.1-cm</ks.api.version>
+        <ks.core.version>2.0.1-cm</ks.core.version>
+        <ks.lum.version>2.0.1-cm</ks.lum.version>
+        <ks.deployments.version>2.0.1-cm</ks.deployments.version>
         <!-- 3rd party library/plugin version definitions -->
         <antlr.runtime.version>3.1.1</antlr.runtime.version>
         <antlr.legacy.version>2.7.7</antlr.legacy.version>
@@ -121,6 +121,8 @@
         <junit.version>4.10</junit.version>
         <ks-contract-docs.plugin.version>1.0.4</ks-contract-docs.plugin.version>
         <kuali.rice.version>2.2.0</kuali.rice.version>
+        <!-- added as result of KSCM-840 - no need to merge to trunk -->
+        <kuali-deploy.version>1.2.17-ks-cm</kuali-deploy.version>
         <log4j.version>1.2.16</log4j.version>
         <log4j.javadoc.version>1.2</log4j.javadoc.version>
         <logkit.version>2.0</logkit.version>
@@ -136,6 +138,8 @@
         <oracle.ojdbc.version>10.2.0.3.0</oracle.ojdbc.version>
         <plugin.impex.version>1.0.31</plugin.impex.version>
         <plugin.enforcer.version>1.1.1</plugin.enforcer.version>
+        <!-- added as result of KSCM-840 - no need to merge to trunk -->
+        <properties.resolve>false</properties.resolve>
         <selenium.version>2.7.0</selenium.version>
         <servlet.api.version>2.5</servlet.api.version>
         <slf4j.version>1.6.2</slf4j.version>
@@ -318,8 +322,8 @@
                                     <version>${maven.min.version}</version>
                                 </requireMavenVersion>
                                 <requireJavaVersion>
-                                    <message>To build this project, java ${jdk.min.version} (or higher) is required. Please install the specified version.</message>
-                                    <version>${jdk.min.version}</version>
+                                    <message>To build this project, java ${jdk.min.version} (or higher, but not 1.7) is required. Please install the specified version.</message>
+                                    <version>(${jdk.min.version},1.7]</version>
                                 </requireJavaVersion>
                                 <requirePluginVersions>
                                     <message>Build reproducibility: It is a best practice to explicitly specify plugin versions!</message>
